@@ -12,20 +12,24 @@
 
         <script type="text/jsx">
             var JasonsComponent = React.createClass({
+                doSomething: function() {
+                        alert("The text displaying is: " + this.props.children);
+                },
                 render: function() {
                     return(
                         //this.props.variablename to render a property/attributes
-                        <h2>{this.props.user} likes to eat {this.props.food}.</h2>
+                        <div>
+                            <h3>{this.props.user}</h3>
+                            <a onClick={this.doSomething} href="#">Click me!</a>
+                        </div>
                     );
                 }
             });
 
             React.render(
                 <div>
-                    <JasonsComponent user="Jason" food="Bacon" />
-                    <JasonsComponent user="Sally" food="Tuna" />
-                    <JasonsComponent user="Emily" food="Beef" />
-                    <JasonsComponent user="Tony" food="Ham" />
+                    <JasonsComponent user="Jason">This guy is awesome.</JasonsComponent>
+                    <JasonsComponent user="Emily">She smells like mints.</JasonsComponent>
                 </div>,
                 document.getElementById('content')
             );
