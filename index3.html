@@ -12,6 +12,33 @@
     <body>
         <div id ="container" class="container"></div>
         <script type="text/jsx">
+
+            var CheckBox = React.createClass({
+
+                getInitialState: function() {
+                    return {checked: true}
+                },
+
+                handleChecked: function() {
+                    this.setState({checked: !this.state.checked})
+                },
+
+                render: function() {
+                    var msg;
+                    if(this.state.checked){
+                        msg = 'checked';
+                    } else {
+                        msg = 'unchecked';
+                    }
+                    return(
+                        <div>
+                            <input onChange={this.handleChecked} type="checkbox" defaultChecked={this.state.checked}/>
+                            <h3>Checkbox is {msg}</h3>
+                        </div>
+                    );
+                }
+            });
+
             var Comment = React.createClass({
                 edit: function() {
                     alert("Editing Comment");
@@ -31,11 +58,13 @@
             });
 
             React.render(
-                <div className="board">
-                    <Comment>Hey now.</Comment>
-                    <Comment>Comment 2</Comment>
-                    <Comment>Comment 3</Comment>
-
+                <div>
+                    <div className="board">
+                        <Comment>Hey now.</Comment>
+                        <Comment>Comment 2</Comment>
+                        <Comment>Comment 3</Comment>
+                    </div>
+                    <CheckBox />
                 </div>, document.getElementById('container')
                 );
         </script>
