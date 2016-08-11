@@ -14,9 +14,27 @@
         </div>
         <script type="text/jsx">
             var CheckBox = React.createClass({
+                getInitialState: function() {
+                    return {checked: true}
+                },
+                handleChecked: function() {
+                    this.setState({checked: !this.state.checked})
+                },
+
                 render: function() {
+                    var msg;
+                    if (this.state.checked) {
+                        msg = "checked";
+                    } else {
+                        msg = "unchecked";
+                    }
                     return(
-                        <h4>Welcome to my checkbox test.</h4>
+                        <div>
+                            <h4>Welcome to my checkbox test.</h4>
+                            <p>Click on the checkbox to see two-way data binding in action!</p>
+                            <input onChange={this.handleChecked} type="checkbox" defaultChecked={this.state.checked} />
+                            <p>The checkbox is now {msg}.</p>
+                        </div>
                     );
                 }
             });
