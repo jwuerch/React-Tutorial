@@ -10,7 +10,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     </head>
     <body>
-        <div id="container"></div>
+        <div id ="container" class="container"></div>
         <script type="text/jsx">
             var Comment = React.createClass({
                 edit: function() {
@@ -33,6 +33,8 @@
             React.render(
                 <div class="board">
                     <Comment>Hey now.</Comment>
+                    <Comment>Comment 2</Comment>
+                    <Comment>Comment 3</Comment>
                 </div>, document.getElementById('container')
                 );
         </script>
