@@ -20,6 +20,7 @@
                         //this.props.variablename to render a property/attributes
                         <div>
                             <h3>{this.props.user}</h3>
+                            //This onClick event is calling the doSomething function within this component, which in turn calls the children of what we are rendering.
                             <a onClick={this.doSomething} href="#">Click me!</a>
                         </div>
                     );
