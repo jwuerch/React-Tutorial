@@ -1,6 +1,10 @@
 .commentContainer {
-    background: #00FFFF;
+    background: #d1d1d1;
+    margin:10px;
+    width:30%;
+    font-weight:700;
     padding:10px;
+
 }
 .btn-primary {
     margin: 5px;
@@ -9,4 +13,11 @@
 .btn-danger {
     margin: 5px;
     margin-left:0;
+}
+.commentText {
+    background:#d1d1d1;
+}
+.board {
+    background:#00FFFF;
+    padding:10px;
 }
