@@ -14,13 +14,19 @@
         <script type="text/jsx">
 
             var Comment = React.createClass({
+                getInitialState: function() {
+                    return {editing: false}
+                },
                 edit: function() {
-                    alert("Editing Comment");
+                    this.setState({editing: true});
                 },
                 remove: function() {
-                    alert("Removing comment");
+                    console.log("Removing comment");
                 },
-                render: function() {
+                save: function() {
+                    this.setState({editing: false});
+                },
+                renderNormal: function() {
                     return(
                         <div className="commentContainer">
                             <div className="commentText">{this.props.children}</div>
@@ -28,6 +34,21 @@
                             <button onClick={this.remove} className="btn btn-danger">Remove</button>
                         </div>
                     );
+                },
+                renderForm: function() {
+                    return(
+                        <div>
+                            <textarea defaultValue={this.props.children}></textarea>
+                            <button className="btn btn-success" onClick={this.save}>Save</button>
+                        </div>
+                    );
+                },
+                render: function() {
+                    if (this.state.editing) {
+                        return this.renderForm();
+                    } else {
+                        return this.renderNormal();
+                    }
                 }
             });
 
